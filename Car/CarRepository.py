@@ -1,4 +1,4 @@
-
+# exclude from mutation testing
 
 class CarRepository:
 
