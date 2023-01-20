@@ -11,6 +11,7 @@ class CarRepository:
         }
             
     def find_all_cars(self, manufacturer):
+        # TODO: random int
         if self.db_connection == True:
             return self.cars[manufacturer]
         else:
