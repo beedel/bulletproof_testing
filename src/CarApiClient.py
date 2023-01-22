@@ -1,6 +1,6 @@
 import time
 
-from src.Car.Exception.ManufacturerNotFoundException import ManufacturerNotFoundException
+from src.Exception.ManufacturerNotFoundException import ManufacturerNotFoundException
 
 """
 This class mimics the behaviour of an API client.

@@ -1,4 +1,4 @@
-from src.Car.Exception.CarNotFoundException import CarNotFoundException
+from src.Exception.CarNotFoundException import CarNotFoundException
 
 """
 This class uses the API client and the repository to return the cars from a specific manufacturer,
