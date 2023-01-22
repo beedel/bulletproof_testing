@@ -5,21 +5,28 @@ from src.Car.CarApiClient import CarApiClient
 
 class CarApiClientTest(unittest.TestCase):
     def setUp(self):
+        # Initialise the API client
         self.car_api_client = CarApiClient(self)
 
     def test_manufacturer_is_not_bankrupt(self):
+        # Arrange
         expected = True
+
+        # Act
         connected = self.car_api_client.manifacturer_is_not_bankrupt('Ford')
 
-        self.assertEqual(connected, expected)
+        # Assert
+        self.assertEqual(expected, connected)
 
     def test_manufacturer_is_bankrupt(self):
-        #Arrange
+        # Arrange
         expected = False
-        #Act
-        actual = self.car_api_client.manifacturer_is_not_bankrupt("Tesla")
-        #Assert
-        self.assertEqual(actual, expected)
+
+        # Act
+        bankrupt = self.car_api_client.manifacturer_is_not_bankrupt("Tesla")
+
+        # Assert
+        self.assertEqual(expected, bankrupt)
 
     def test_unknown_manufacturer_raises_exception(self):
         with self.assertRaises(Exception):
