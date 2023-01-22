@@ -20,6 +20,14 @@ class CarResolverSmokeTest(unittest.TestCase):
         # Crate the car resolver with the mocked API client
         self.car_resolver = CarResolver(self.car_repository, self.car_api_client)
 
+    def tearDown(self):
+        conn = sqlite3.connect('test_database')
+        c = conn.cursor()
+
+        c.execute("DROP TABLE IF EXISTS cars")
+
+        conn.commit()
+
     def test_get_all_cars_success(self):
         # Arrange
         self.car_api_client.manifacturer_is_not_bankrupt.return_value = True
