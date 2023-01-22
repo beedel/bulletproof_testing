@@ -1,5 +1,10 @@
 from src.Car.Exception.CarNotFoundException import CarNotFoundException
 
+"""
+This class uses the API client and the repository to return the cars from a specific manufacturer,
+firstly checking whether the manufacturer has not gone bankrupt.
+"""
+
 
 class CarResolver:
 
