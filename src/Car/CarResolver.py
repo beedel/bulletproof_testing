@@ -1,5 +1,5 @@
-class CarNotFoundException(Exception):
-    pass
+from src.Car.Exception.CarNotFoundException import CarNotFoundException
+
 
 class CarResolver:
 

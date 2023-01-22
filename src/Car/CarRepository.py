@@ -1,4 +1,6 @@
 # exclude from mutation testing
+from src.Car.Exception.DatabaseConnectionException import DatabaseConnectionException
+
 
 class CarRepository:
 
@@ -15,4 +17,4 @@ class CarRepository:
         if self.db_connection:
             return self.cars[manufacturer]
         else:
-            raise Exception('Database connection lost!')
+            raise DatabaseConnectionException('Database connection lost!')

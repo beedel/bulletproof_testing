@@ -1,5 +1,7 @@
 import time
 
+from src.Car.Exception.ManufacturerNotFoundException import ManufacturerNotFoundException
+
 
 class CarApiClient:
     def __init__(self, api_key) -> None:
@@ -14,4 +16,4 @@ class CarApiClient:
         if manufacturer == 'Tesla':
             return False
 
-        raise Exception('Manufacturer not found')
+        raise ManufacturerNotFoundException('Manufacturer not found')
