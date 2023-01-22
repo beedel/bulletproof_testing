@@ -1,4 +1,5 @@
-
+class CarNotFoundException(Exception):
+    pass
 
 class CarResolver:
 
@@ -10,4 +11,4 @@ class CarResolver:
         if self.car_api_client.manifacturer_is_not_bankrupt(manufacturer):
             return self.car_repository.find_all_cars(manufacturer)
         else:
-            raise Exception('Manifacturer has gone bankrupt!')
+            raise CarNotFoundException('Manufacturer has gone bankrupt!')

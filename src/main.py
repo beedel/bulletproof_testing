@@ -7,7 +7,6 @@ from src.Car.CarRepository import CarRepository
 def main(car_resolver):
     if len(sys.argv) < 2:
         exit('Add an argument')
-
     print(car_resolver.get_all_cars(sys.argv[1]))
 
 
