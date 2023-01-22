@@ -1,6 +1,7 @@
 import unittest
 
-from src.Car.CarApiClient import CarApiClient
+from src.Exception.ManufacturerNotFoundException import ManufacturerNotFoundException
+from src.CarApiClient import CarApiClient
 
 
 class CarApiClientTest(unittest.TestCase):
@@ -29,7 +30,7 @@ class CarApiClientTest(unittest.TestCase):
         self.assertEqual(expected, bankrupt)
 
     def test_unknown_manufacturer_raises_exception(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ManufacturerNotFoundException):
             self.car_api_client.manifacturer_is_not_bankrupt('Unknown')
 
 

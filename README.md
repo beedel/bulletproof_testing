@@ -22,3 +22,9 @@ python3 -m venv env
 . env/bin/activate
 pip install -r requirements.txt
 ```
+
+
+Run the program with `python3 main.py ManufacturerName` (Ford, BMW, Honda, or Tesla)
+
+
+Run tests with `python3 -m unittest tests/*Test.py`

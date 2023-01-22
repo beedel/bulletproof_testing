@@ -1,33 +1,30 @@
 import unittest
 from unittest.mock import MagicMock
 
-from src.Car.CarRepository import CarRepository
-from src.Car.CarResolver import CarResolver, CarNotFoundException
+from src.CarResolver import CarResolver, CarNotFoundException
 
 
-class CarResolverSmokeTest(unittest.TestCase):
+class CarResolverTest(unittest.TestCase):
     def setUp(self):
         # Create a mock for the car API client
         self.car_api_client = MagicMock()
-        # Initialise the car repository
-        self.car_repository = CarRepository(True)
-        # Crate the car resolver with the mocked API client
+        # Create a mock for the car repository
+        self.car_repository = MagicMock()
+        # Crate the car resolver with mocked repository and API client
         self.car_resolver = CarResolver(self.car_repository, self.car_api_client)
 
     def test_get_all_cars_success(self):
         # Arrange
         self.car_api_client.manifacturer_is_not_bankrupt.return_value = True
+        self.car_repository.find_all_cars.return_value = 'some cars'
 
         # Act
-        cars = self.car_resolver.get_all_cars('Ford')
+        cars = self.car_resolver.get_all_cars('manufacturer')
 
         # Assert
-        self.assertEqual(['Mustang', 'Fiesta', 'Focus'], cars)
+        self.assertEqual(cars, 'some cars')
 
     def test_get_all_cars_failure(self):
         self.car_api_client.manifacturer_is_not_bankrupt.return_value = False
         self.assertRaises(CarNotFoundException, self.car_resolver.get_all_cars, 'manufacturer')
 
-
-if __name__ == '__main__':
-    unittest.main()
