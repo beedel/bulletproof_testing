@@ -1,7 +1,7 @@
 import sys
-from Car.CarResolver import CarResolver
-from Car.CarApiClient import CarApiClient
-from Car.CarRepository import CarRepository
+from src.Car.CarResolver import CarResolver
+from src.Car.CarApiClient import CarApiClient
+from src.Car.CarRepository import CarRepository
 
 
 def main(car_resolver):
