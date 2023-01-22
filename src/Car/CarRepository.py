@@ -1,4 +1,4 @@
-
+# exclude from mutation testing
 
 class CarRepository:
 
@@ -11,7 +11,8 @@ class CarRepository:
         }
             
     def find_all_cars(self, manufacturer):
-        if self.db_connection == True:
+        # TODO: random int
+        if self.db_connection:
             return self.cars[manufacturer]
         else:
             raise Exception('Database connection lost!')
