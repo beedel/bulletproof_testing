@@ -1,2 +1,0 @@
-class CarNotFoundException(Exception):
-    pass

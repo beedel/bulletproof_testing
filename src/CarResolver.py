@@ -1,4 +1,4 @@
-from src.Exception.CarNotFoundException import CarNotFoundException
+from src.Exception.BankruptManufacturerException import BankruptManufacturerException
 
 """
 This class uses the API client and the repository to return the cars from a specific manufacturer,
@@ -16,4 +16,4 @@ class CarResolver:
         if self.car_api_client.manifacturer_is_not_bankrupt(manufacturer):
             return self.car_repository.find_all_cars(manufacturer)
         else:
-            raise CarNotFoundException('Manufacturer has gone bankrupt!')
+            raise BankruptManufacturerException('Manufacturer has gone bankrupt!')

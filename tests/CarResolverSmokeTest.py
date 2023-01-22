@@ -3,7 +3,7 @@ import sqlite3
 from unittest.mock import MagicMock
 
 from src.CarRepository import CarRepository
-from src.CarResolver import CarResolver, CarNotFoundException
+from src.CarResolver import CarResolver, BankruptManufacturerException
 
 
 class CarResolverSmokeTest(unittest.TestCase):
@@ -35,28 +35,25 @@ class CarResolverSmokeTest(unittest.TestCase):
 
     def test_get_all_cars_failure(self):
         self.car_api_client.manifacturer_is_not_bankrupt.return_value = False
-        self.assertRaises(CarNotFoundException, self.car_resolver.get_all_cars, 'manufacturer')
+        self.assertRaises(BankruptManufacturerException, self.car_resolver.get_all_cars, 'manufacturer')
 
     def _initialise_db(self):
         conn = sqlite3.connect('test_database')
         c = conn.cursor()
 
-        c.execute('''DROP TABLE IF EXISTS cars''')
+        c.execute("DROP TABLE IF EXISTS cars")
 
-        c.execute('''
-            CREATE TABLE IF NOT EXISTS cars
-            ([id] INTEGER PRIMARY KEY, [brand] TEXT, [model] TEXT)
-        ''')
+        c.execute("CREATE TABLE IF NOT EXISTS cars ([id] INTEGER PRIMARY KEY, [brand] TEXT, [model] TEXT)")
 
-        c.execute('''INSERT INTO cars values(1, 'Ford', 'Fiesta')''')
-        c.execute('''INSERT INTO cars values(2, 'Ford', 'Mustang')''')
-        c.execute('''INSERT INTO cars values(3, 'Ford', 'Focus')''')
-        c.execute('''INSERT INTO cars values(4, 'BMW', 'M3')''')
-        c.execute('''INSERT INTO cars values(5, 'BMW', 'X5')''')
-        c.execute('''INSERT INTO cars values(6, 'BMW', 'iX')''')
-        c.execute('''INSERT INTO cars values(7, 'Honda', 'Civic')''')
-        c.execute('''INSERT INTO cars values(8, 'Honda', 'Jazz')''')
-        c.execute('''INSERT INTO cars values(9, 'Honda', 'E')''')
+        c.execute("INSERT INTO cars values(1, 'Ford', 'Fiesta')")
+        c.execute("INSERT INTO cars values(2, 'Ford', 'Mustang')")
+        c.execute("INSERT INTO cars values(3, 'Ford', 'Focus')")
+        c.execute("INSERT INTO cars values(4, 'BMW', 'M3')")
+        c.execute("INSERT INTO cars values(5, 'BMW', 'X5')")
+        c.execute("INSERT INTO cars values(6, 'BMW', 'iX')")
+        c.execute("INSERT INTO cars values(7, 'Honda', 'Civic')")
+        c.execute("INSERT INTO cars values(8, 'Honda', 'Jazz')")
+        c.execute("INSERT INTO cars values(9, 'Honda', 'E')")
 
         conn.commit()
 

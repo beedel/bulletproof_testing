@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 
-from src.CarResolver import CarResolver, CarNotFoundException
+from src.CarResolver import CarResolver, BankruptManufacturerException
 
 
 class CarResolverTest(unittest.TestCase):
@@ -26,5 +26,5 @@ class CarResolverTest(unittest.TestCase):
 
     def test_get_all_cars_failure(self):
         self.car_api_client.manifacturer_is_not_bankrupt.return_value = False
-        self.assertRaises(CarNotFoundException, self.car_resolver.get_all_cars, 'manufacturer')
+        self.assertRaises(BankruptManufacturerException, self.car_resolver.get_all_cars, 'manufacturer')
 

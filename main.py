@@ -32,22 +32,19 @@ def initialise_db():
     conn = sqlite3.connect('car_database')
     c = conn.cursor()
 
-    c.execute('''DROP TABLE IF EXISTS cars''')
+    c.execute("DROP TABLE IF EXISTS cars")
 
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS cars
-        ([id] INTEGER PRIMARY KEY, [brand] TEXT, [model] TEXT)
-    ''')
+    c.execute("CREATE TABLE IF NOT EXISTS cars ([id] INTEGER PRIMARY KEY, [brand] TEXT, [model] TEXT)")
 
-    c.execute('''INSERT INTO cars values(1, 'Ford', 'Fiesta')''')
-    c.execute('''INSERT INTO cars values(2, 'Ford', 'Mustang')''')
-    c.execute('''INSERT INTO cars values(3, 'Ford', 'Focus')''')
-    c.execute('''INSERT INTO cars values(4, 'BMW', 'M3')''')
-    c.execute('''INSERT INTO cars values(5, 'BMW', 'X5')''')
-    c.execute('''INSERT INTO cars values(6, 'BMW', 'iX')''')
-    c.execute('''INSERT INTO cars values(7, 'Honda', 'Civic')''')
-    c.execute('''INSERT INTO cars values(8, 'Honda', 'Jazz')''')
-    c.execute('''INSERT INTO cars values(9, 'Honda', 'E')''')
+    c.execute("INSERT INTO cars values(1, 'Ford', 'Fiesta')")
+    c.execute("INSERT INTO cars values(2, 'Ford', 'Mustang')")
+    c.execute("INSERT INTO cars values(3, 'Ford', 'Focus')")
+    c.execute("INSERT INTO cars values(4, 'BMW', 'M3')")
+    c.execute("INSERT INTO cars values(5, 'BMW', 'X5')")
+    c.execute("INSERT INTO cars values(6, 'BMW', 'iX')")
+    c.execute("INSERT INTO cars values(7, 'Honda', 'Civic')")
+    c.execute("INSERT INTO cars values(8, 'Honda', 'Jazz')")
+    c.execute("INSERT INTO cars values(9, 'Honda', 'E')")
 
     conn.commit()
 
