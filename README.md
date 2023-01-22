@@ -28,3 +28,10 @@ Run the program with `python3 main.py ManufacturerName` (Ford, BMW, Honda, or Te
 
 
 Run tests with `python3 -m unittest tests/*Test.py`
+
+
+Check test coverage with:
+
+`coverage run main.py Ford`
+
+`coverage report -m`
