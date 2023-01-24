@@ -5,7 +5,7 @@ class MotorBikeConnector:
 
     def __init__(self):
         self.exist_url = "www.bikernet.com/checkExist"
-        self.price_check_url = "www.bikernet.com/getPrice"
+        self.price_check_url = "www.bikernet.com/getPriceForBike"
         pass
 
     def check_if_bike_exists(self, bike_name):

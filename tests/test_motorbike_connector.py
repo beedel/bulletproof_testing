@@ -67,7 +67,7 @@ class TestMotorBikeConnector(unittest.TestCase):
         result = connector.get_price_for_bike("Harley Davidson")
 
         # Assert
-        mock_post.assert_called_with(url="www.bikernet.com/getPrice", json={'bikeName': "Harley Davidson"})
+        mock_post.assert_called_with(url="www.bikernet.com/getPriceForBike", json={'bikeName': "Harley Davidson"})
 
         # Assert
         self.assertEqual(result, "£6000")
